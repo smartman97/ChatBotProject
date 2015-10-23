@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Base version of the 2015 Chatbot class. Only stub methods are provided. Students will complete methods as part
  * of the project.
  * @author Colm Laro
- * @version 1.0 10/21/15
+ * @version 1.2 10/23/15
  */
 public class Chatbot
 {
@@ -21,7 +21,7 @@ public class Chatbot
 	 */
 	public Chatbot(String userName)
 	{
-		
+		this.userName = userName;
 	}
 	
 	private void buildMemesList()
@@ -93,7 +93,7 @@ public class Chatbot
 	 */
 	public String getUserName()
 	{
-		return null;
+		return userName;
 	}
 	
 	/**
