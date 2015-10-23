@@ -29,7 +29,7 @@ public class Chatbot
 	
 	private void buildMemesList()
 	{
-		
+		//me gusta, troll, what if i, spoder, doge, BLB, cute animals, pepe, aliens, unhelpful teacher.
 	}
 	
 	private void buildPoliticalTopicsList()
