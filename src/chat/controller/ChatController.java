@@ -41,6 +41,10 @@ public class ChatController
 			{
 				myDisplay.showResponse("What a lame meme... :( You loser!!");
 			}
+			else if(myBot.politicalTopicChecker(conversation))
+			{
+				myDisplay.showResponse("I don't care about polictics since I'm a robot.");
+			}
 			else
 			{
 			conversation = myDisplay.grabAnswer(conversation + "???\nI'm not sure what you mean by that.\nWhat else is on your mind?");
