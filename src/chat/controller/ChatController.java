@@ -23,7 +23,7 @@ public class ChatController
 	
 	public void start()
 	{
-		myDisplay.showResponse("Hello " + myBot.getUserName() + "\n My name is Jarvis.");
+		myDisplay.showResponse("Hello " + myBot.getUserName() + "\nMy name is Caliban.");
 		
 		chat();
 	}
@@ -35,7 +35,7 @@ public class ChatController
 		{
 			if(myBot.contentChecker(conversation))
 			{
-				myDisplay.showResponse("Wow I can't believe you are interested in " + myBot.getContent() + "!\n" + "My favorite team is the Patriots!");
+				myDisplay.showResponse("Wow I can't believe you are interested in " + myBot.getContent() + "!\nMy favorite team is the Patriots!");
 			}
 			else if(myBot.memeChecker(conversation))
 			{
@@ -47,7 +47,7 @@ public class ChatController
 			}
 			else
 			{
-			conversation = myDisplay.grabAnswer(conversation + "???\nI'm not sure what you mean by that.\nWhat else is on your mind?");
+				myDisplay.showResponse(conversation + "?\nI'm not sure what you mean by that.");
 			}
 			conversation = myDisplay.grabAnswer("What else is on your mind?");
 		}
