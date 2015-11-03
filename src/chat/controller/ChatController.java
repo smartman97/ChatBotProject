@@ -33,28 +33,15 @@ public class ChatController
 		String conversation = myDisplay.grabAnswer("What would you like to talk about today?");
 		while(myBot.lengthChecker(conversation))
 		{
-			if(myBot.contentChecker(conversation))
-			{
-				myDisplay.showResponse("Wow I can't believe you are interested in " + myBot.getContent() + "!\nMy favorite team is the Patriots!");
-			}
-			else if(myBot.memeChecker(conversation))
-			{
-				myDisplay.showResponse("What a lame meme... :( You loser!!");
-			}
-			else if(myBot.politicalTopicChecker(conversation))
-			{
-				myDisplay.showResponse("I don't care about polictics since I'm a robot.");
-			}
-			else
-			{
-				myDisplay.showResponse(conversation + "?\nI'm not sure what you mean by that.");
-			}
-			conversation = myDisplay.grabAnswer("What else is on your mind?");
+			conversation = myBot.processConversation(conversation);
+			conversation = myDisplay.grabAnswer(conversation);
 		}
+		
+		shutDown();
 	}
 	
 	private void shutDown()
 	{
-		
+		myDisplay.showResponse("Goodbye, " + myBot.getUserName());
 	}
 }

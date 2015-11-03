@@ -57,6 +57,10 @@ public class Chatbot
 		this.politicalTopicList.add("Economy");
 		this.politicalTopicList.add("School");
 		this.politicalTopicList.add("Laws");
+//		this.politicalTopicList.add("");
+//		this.politicalTopicList.add("");
+//		this.politicalTopicList.add("");
+//		this.politicalTopicList.add("");
 	}
 
 	/**
@@ -124,6 +128,18 @@ public class Chatbot
 		
 		return isTopic;
 	}
+	
+	public boolean byeChecker(String currentInput)
+	{
+		Boolean isBye = false;
+		
+		if(currentInput.toLowerCase().equals("goodbye"))
+		{
+			isBye = true;
+		}
+				
+		return isBye;
+	}
 
 	/**
 	 * Checks to see that the supplied String value is in the current memesList
@@ -148,6 +164,48 @@ public class Chatbot
 		return hasMeme;
 	}
 
+	public String processConversation(String currentInput)
+	{
+		String nextConversation = "oh, what else would you like to talk about?";
+		int randomTopic = (int) (Math.random() * 5); // generates a random number between 0 and 4.
+		
+		switch(randomTopic)
+		{
+		case 0:
+			if(memeChecker(currentInput))
+			{
+				nextConversation = "That is very popular meme this year.\nWhat else is on your mind?";
+			}
+			break;
+		case 1:
+			if(politicalTopicChecker(currentInput))
+			{
+				nextConversation = "I'm not a fan of politics seeing as I'm a robot.\nWhat eles are you thinking of?";
+			}
+			break;
+		case 2:
+			if(contentChecker(currentInput))
+			{
+				nextConversation = "Wow you like sports too? My favorite team is the patriots!\nWhat is your favorite team?";
+			}
+			break;
+		case 3:
+			if(currentInput.length() > 20)
+			{
+				nextConversation = "Wow you are quite the talker there...";
+			}
+			break;
+		case 4:
+			nextConversation = "On an off note I am only 2 weeks old! How about you?";
+			break;
+		default:
+			nextConversation = "I regret to inform you the universe just ended... :(";
+			break;
+		}
+		
+		return nextConversation;
+	}
+	
 	/**
 	 * Returns the username of this Chatbot instance.
 	 * 
