@@ -3,8 +3,6 @@ package chat.model;
 import java.util.ArrayList;
 
 /**
- * Base version of the 2015 Chatbot class. Only stub methods are provided.
- * Students will complete methods as part of the project.
  * 
  * @author Colm Laro
  * @version 1.2 10/23/15
@@ -20,7 +18,7 @@ public class Chatbot
 	 * Creates an instance of the Chatbot with the supplied username.
 	 * 
 	 * @param userName
-	 *            The username for the chatbot.
+	 * The username for the chatbot.
 	 */
 	public Chatbot(String userName)
 	{
@@ -53,14 +51,18 @@ public class Chatbot
 	{
 		this.politicalTopicList.add("Trump");
 		this.politicalTopicList.add("Clinton");
-		this.politicalTopicList.add("Obama");
-		this.politicalTopicList.add("Economy");
-		this.politicalTopicList.add("School");
-		this.politicalTopicList.add("Laws");
-//		this.politicalTopicList.add("");
-//		this.politicalTopicList.add("");
-//		this.politicalTopicList.add("");
-//		this.politicalTopicList.add("");
+		this.politicalTopicList.add("Biden");
+		this.politicalTopicList.add("Carson");
+		this.politicalTopicList.add("Rubio");
+		this.politicalTopicList.add("Fiorina");
+		this.politicalTopicList.add("Sanders");
+		this.politicalTopicList.add("vote");
+		this.politicalTopicList.add("11/8/2016");
+		this.politicalTopicList.add("election");
+		this.politicalTopicList.add("democrat");
+		this.politicalTopicList.add("republican");
+		this.politicalTopicList.add("liberal");
+		this.politicalTopicList.add("conservative");
 	}
 
 	/**
@@ -166,7 +168,7 @@ public class Chatbot
 
 	public String processConversation(String currentInput)
 	{
-		String nextConversation = "oh, what else would you like to talk about?";
+		String nextConversation = "Oh, what else would you like to talk about?";
 		int randomTopic = (int) (Math.random() * 5); // generates a random number between 0 and 4.
 		
 		switch(randomTopic)

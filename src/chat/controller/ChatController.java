@@ -23,7 +23,7 @@ public class ChatController
 	
 	public void start()
 	{
-		myDisplay.showResponse("Hello " + myBot.getUserName() + "\nMy name is Caliban.");
+		myDisplay.showResponse("Hello " + myBot.getUserName() + ",\nMy name is Caliban.");
 		
 		chat();
 	}
