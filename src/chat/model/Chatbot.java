@@ -3,7 +3,6 @@ package chat.model;
 import java.util.ArrayList;
 
 /**
- * 
  * @author Colm Laro
  * @version 1.2 10/23/15
  */
@@ -164,6 +163,34 @@ public class Chatbot
 		}
 		
 		return hasMeme;
+	}
+	
+	public boolean keyboardMashChecker(String currentInput)
+	{
+		boolean isMash = false;
+		
+		if(currentInput.equals("sdf") || currentInput.equals("dfg") || currentInput.equals("cvb") || currentInput.equals(",./"))
+		{
+			isMash = true;
+		}
+		else if(currentInput.equals("derf") || currentInput.equals("S.D.F."))
+		{
+			isMash = false;
+		}
+		
+		return isMash;
+	}
+	
+	public boolean quitChecker(String currentInput)
+	{
+		boolean hasQuit = false;
+		
+		if(currentInput.equals("quit"))
+		{
+			hasQuit = true;
+		}
+		
+		return hasQuit;
 	}
 
 	public String processConversation(String currentInput)
