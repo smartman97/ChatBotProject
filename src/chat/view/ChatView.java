@@ -15,7 +15,7 @@ public class ChatView
 	public ChatView()
 	{
 		windowMessage = "Caliban ChatBot";
-		chatIcon = new ImageIcon (getClass().getResource("chat/images/chatbot.png"));
+		chatIcon = new ImageIcon (getClass().getResource("images/chatbot.png"));
 	}
 	
 	/**

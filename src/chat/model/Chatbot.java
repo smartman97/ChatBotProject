@@ -48,6 +48,7 @@ public class Chatbot
 
 	private void buildPoliticalTopicsList()
 	{
+		this.politicalTopicList.add("Obama");
 		this.politicalTopicList.add("Trump");
 		this.politicalTopicList.add("Clinton");
 		this.politicalTopicList.add("Biden");
@@ -209,7 +210,7 @@ public class Chatbot
 		case 1:
 			if(politicalTopicChecker(currentInput))
 			{
-				nextConversation = "I'm not a fan of politics seeing as I'm a robot.\nWhat eles are you thinking of?";
+				nextConversation = "I'm not a fan of politics seeing as I'm a robot.\nWhat else are you thinking of?";
 			}
 			break;
 		case 2:

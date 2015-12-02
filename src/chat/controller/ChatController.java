@@ -26,19 +26,31 @@ public class ChatController
 	
 	public void start()
 	{
-		myDisplay.showResponse("Hello " + myBot.getUserName() + ",\nMy name is Caliban.");
-		
+		//myDisplay.showResponse("Hello " + myBot.getUserName() + ",\nMy name is Caliban.");
 		chat();
 	}
 	
 	private void chat()
 	{
-		String conversation = myDisplay.grabAnswer("What would you like to talk about today?");
-		while(myBot.lengthChecker(conversation))
+//		String conversation = myDisplay.grabAnswer("What would you like to talk about today?");
+//		while(myBot.lengthChecker(conversation))
+//		{
+//			conversation = myBot.processConversation(conversation);
+//			conversation = myDisplay.grabAnswer(conversation);
+//		}
+	}
+	
+	public String userToChatbot(String conversation)
+	{
+		String response = "";
+		
+		if(myBot.quitChecker(conversation))
 		{
-			conversation = myBot.processConversation(conversation);
-			conversation = myDisplay.grabAnswer(conversation);
+			shutDown();
 		}
+		
+		response = myBot.processConversation(conversation);
+		return response;
 	}
 	
 	private void shutDown()
