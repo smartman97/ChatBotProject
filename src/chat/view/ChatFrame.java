@@ -26,8 +26,8 @@ public class ChatFrame extends JFrame
 	private void setupFrame()
 	{
 		this.setContentPane(basePanel); //Must be the first line of setupFrame() -Installs panel in the frame.
-		this.setSize(500, 400);			//Fine a good size for the application.
-		this.setTitle("Simple GUI");
+		this.setSize(700, 400);			//Fine a good size for the application.
+		this.setTitle("Caliban, the crappy chatbot");
 		this.setResizable(false);		//Advisable not required.
 		this.setVisible(true);			//Must be the last line of setupFrame()
 	}
