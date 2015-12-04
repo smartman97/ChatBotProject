@@ -28,11 +28,19 @@ public class ChatPanel extends JPanel
 	private JLabel pictureLabel;
 	private ImageIcon chatIcon;
 
+	/**
+	 * Returns the text field.
+	 * @return
+	 */
 	public JTextField getTypingField()
 	{
 		return typingField;
 	}
 
+	/**
+	 * Initilizes the objects for the panel.
+	 * @param baseController
+	 */
 	public ChatPanel(ChatController baseController)
 	{
 		chatIcon = new ImageIcon (getClass().getResource("images/chatbot.png"));

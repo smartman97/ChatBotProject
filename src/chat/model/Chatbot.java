@@ -12,10 +12,10 @@ public class Chatbot
 	private ArrayList<String> politicalTopicList;
 	private String userName;
 	private String content;
+	private int topicCounter;
 
 	/**
 	 * Creates an instance of the Chatbot with the supplied username.
-	 * 
 	 * @param userName
 	 * The username for the chatbot.
 	 */
@@ -25,11 +25,15 @@ public class Chatbot
 		this.politicalTopicList = new ArrayList<String>();
 		this.userName = userName;
 		this.content = "Sports";
+		topicCounter = 0;
 
 		buildMemesList();
 		buildPoliticalTopicsList();
 	}
 
+	/**
+	 * Builds the array list of memes.
+	 */
 	private void buildMemesList()
 	{
 		// me gusta, troll, what if i, spoder, doge, BLB, cute animals, pepe,
@@ -45,7 +49,9 @@ public class Chatbot
 		this.memesList.add("aliens");
 		this.memesList.add("unhelpful teacher");
 	}
-
+	/**
+ 	* Builds the array list of political topics.
+ 	*/
 	private void buildPoliticalTopicsList()
 	{
 		this.politicalTopicList.add("Obama");
@@ -68,7 +74,6 @@ public class Chatbot
 	/**
 	 * Checks the length of the supplied string. Returns false if the supplied
 	 * String is empty or null, otherwise returns true.
-	 * 
 	 * @param currentInput
 	 * @return A true or false based on the length of the supplied String.
 	 */
@@ -90,9 +95,7 @@ public class Chatbot
 	/**
 	 * Checks if the supplied String matches the content area for this Chatbot
 	 * instance.
-	 * 
-	 * @param currentInput
-	 *            The supplied String to be checked.
+	 * @param currentInput The supplied String to be checked.
 	 * @return Whether it matches the content area.
 	 */
 	public boolean contentChecker(String currentInput)
@@ -109,11 +112,8 @@ public class Chatbot
 
 	/**
 	 * Checks if supplied String matches ANY of the topics in the
-	 * politicalTopicsList. Returns true if it does find a match and false if it
-	 * does not match.
-	 * 
-	 * @param currentInput
-	 *            The supplied String to be checked.
+	 * politicalTopicsList. Returns true if it does find a match and false if it does not match.
+	 * @param currentInput The supplied String to be checked.
 	 * @return Whether the String is contained in the ArrayList.
 	 */
 	public boolean politicalTopicChecker(String currentInput)
@@ -144,11 +144,8 @@ public class Chatbot
 	}
 
 	/**
-	 * Checks to see that the supplied String value is in the current memesList
-	 * variable.
-	 * 
-	 * @param currentInput
-	 *            The supplied String to be checked.
+	 * Checks to see that the supplied String value is in the current memesList variable.
+	 * @param currentInput The supplied String to be checked.
 	 * @return Whether the supplied String is a recognized meme.
 	 */
 	public boolean memeChecker(String currentInput)
@@ -186,7 +183,7 @@ public class Chatbot
 	{
 		boolean hasQuit = false;
 		
-		if(currentInput.equals("quit"))
+		if(currentInput.equals("quit") || currentInput.equals("bye") || currentInput.equals("goodbye") || currentInput.equals("exit"))
 		{
 			hasQuit = true;
 		}
@@ -206,11 +203,19 @@ public class Chatbot
 			{
 				nextConversation = "That is very popular meme this year.\nWhat else is on your mind?";
 			}
+			else
+			{
+				nextConversation = "You don't want to talk about memes??";
+			}
 			break;
 		case 1:
 			if(politicalTopicChecker(currentInput))
 			{
 				nextConversation = "I'm not a fan of politics seeing as I'm a robot.\nWhat else are you thinking of?";
+			}
+			else
+			{
+				nextConversation = "I'm very glad that you didn't talk about politics!";
 			}
 			break;
 		case 2:
@@ -218,15 +223,23 @@ public class Chatbot
 			{
 				nextConversation = "Wow you like sports too? My favorite team is the patriots!\nWhat is your favorite team?";
 			}
+			else
+			{
+				nextConversation = "What we should really be talking about are sports.";
+			}
 			break;
 		case 3:
 			if(currentInput.length() > 20)
 			{
 				nextConversation = "Wow you are quite the talker there...";
 			}
+			else
+			{
+				nextConversation = "You don't talk much do you...";
+			}
 			break;
 		case 4:
-			nextConversation = "On an off note I am only 2 weeks old! How about you?";
+			nextConversation = "On an off note I am only a month old! How about you?";
 			break;
 		default:
 			nextConversation = "I regret to inform you the universe just ended... :(";
@@ -238,7 +251,6 @@ public class Chatbot
 	
 	/**
 	 * Returns the username of this Chatbot instance.
-	 * 
 	 * @return The username of the Chatbot.
 	 */
 	public String getUserName()
@@ -248,7 +260,6 @@ public class Chatbot
 
 	/**
 	 * Returns the content area for this Chatbot instance.
-	 * 
 	 * @return The content area for this Chatbot instance.
 	 */
 	public String getContent()
@@ -258,7 +269,6 @@ public class Chatbot
 
 	/**
 	 * Getter method for the memesList object.
-	 * 
 	 * @return The reference to the meme list.
 	 */
 	public ArrayList<String> getMemesList()
@@ -268,7 +278,6 @@ public class Chatbot
 
 	/**
 	 * Getter method for the politicalTopicList object.
-	 * 
 	 * @return The reference to the political topic list.
 	 */
 	public ArrayList<String> getPoliticalTopicList()
@@ -278,9 +287,7 @@ public class Chatbot
 
 	/**
 	 * Updates the content area for this Chatbot instance.
-	 * 
-	 * @param content
-	 *            The updated value for the content area.
+	 * @param content The updated value for the content area.
 	 */
 	public void setContent(String content)
 	{

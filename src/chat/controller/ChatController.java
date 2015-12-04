@@ -16,6 +16,9 @@ public class ChatController
 	private Chatbot myBot;
 	private ChatFrame baseFrame;
 
+	/**
+	 * Contructor that creates all the objects for the class
+	 */
 	public ChatController()
 	{
 		myDisplay = new ChatView();
@@ -24,12 +27,18 @@ public class ChatController
 		baseFrame = new ChatFrame(this);
 	}
 	
+	/**
+	 * Method that was used for starting the popups. No longer needed 
+	 */
 	public void start()
 	{
-		//myDisplay.showResponse("Hello " + myBot.getUserName() + ",\nMy name is Caliban.");
+		myDisplay.showResponse("Hello " + myBot.getUserName() + ",\nMy name is Caliban.");
 		//chat();
 	}
 	
+	/**
+	 * Method that stores input from the user and shows response from computer
+	 */
 	private void chat()
 	{
 		String conversation = myDisplay.grabAnswer("What would you like to talk about today?");
@@ -40,6 +49,11 @@ public class ChatController
 		}
 	}
 	
+	/**
+	 * Takes user input and allows the GUI to see it
+	 * @param conversation
+	 * @return
+	 */
 	public String userToChatbot(String conversation)
 	{
 		String response = "";
@@ -53,22 +67,37 @@ public class ChatController
 		return response;
 	}
 	
+	/**
+	 * Ends the program when called
+	 */
 	private void shutDown()
 	{
 		myDisplay.showResponse("Goodbye, " + myBot.getUserName());
 		System.exit(0);
 	}
 	
+	/**
+	 * Returns the chatview.
+	 * @return
+	 */
 	public ChatView getMyDisplay()
 	{
 		return myDisplay;
 	}
 
+	/**
+	 * Returns the chatbot.
+	 * @return
+	 */
 	public Chatbot getMyBot()
 	{
 		return myBot;
 	}
 
+	
+	/**
+	 * Returns the chatframe.
+	 */
 	public ChatFrame getBaseFrame()
 	{
 		return baseFrame;

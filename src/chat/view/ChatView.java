@@ -12,6 +12,9 @@ public class ChatView
 	private String windowMessage;
 	private ImageIcon chatIcon;
 	
+	/**
+	 * Initializes the objects for the class.
+	 */
 	public ChatView()
 	{
 		windowMessage = "Caliban ChatBot";
@@ -26,6 +29,7 @@ public class ChatView
 	{
 		JOptionPane.showMessageDialog(null, wordsFromSomewhere, windowMessage, JOptionPane.INFORMATION_MESSAGE,chatIcon);
 	}
+	
 	/**
 	 * Displays a popup with a field to type in a response.
 	 * It returns the answer to the supplied question as a String.
