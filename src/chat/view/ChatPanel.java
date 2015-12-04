@@ -16,6 +16,9 @@ import chat.controller.ChatController;
 
 public class ChatPanel extends JPanel
 {
+	/**
+	 * Initializes all objects for the panel
+	 */
 	private ChatController baseController;
 	private SpringLayout baseLayout;
 	private JButton submitButton;
