@@ -167,11 +167,11 @@ public class Chatbot
 	{
 		boolean isMash = false;
 		
-		if(currentInput.equals("sdf") || currentInput.equals("dfg") || currentInput.equals("cvb") || currentInput.equals(",./"))
+		if(currentInput.contains("sdf") || currentInput.contains("dfg") || currentInput.contains("cvb") || currentInput.contains(",./"))
 		{
 			isMash = true;
 		}
-		else if(currentInput.equals("derf") || currentInput.equals("S.D.F."))
+		else if(currentInput.contains("derf") || currentInput.contains("S.D.F."))
 		{
 			isMash = false;
 		}
@@ -183,7 +183,7 @@ public class Chatbot
 	{
 		boolean hasQuit = false;
 		
-		if(currentInput.equals("quit") || currentInput.equals("bye") || currentInput.equals("goodbye") || currentInput.equals("exit"))
+		if(currentInput.contains("quit") || currentInput.contains("bye") || currentInput.contains("goodbye") || currentInput.contains("exit"))
 		{
 			hasQuit = true;
 		}
