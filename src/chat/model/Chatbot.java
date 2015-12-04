@@ -194,7 +194,7 @@ public class Chatbot
 	public String processConversation(String currentInput)
 	{
 		String nextConversation = "Oh, what else would you like to talk about?";
-		int randomTopic = (int) (Math.random() * 5); // generates a random number between 0 and 4.
+		int randomTopic = (int) (Math.random() * 6); // generates a random number between 0 and 4.
 		
 		switch(randomTopic)
 		{
@@ -239,6 +239,16 @@ public class Chatbot
 			}
 			break;
 		case 4:
+			if(keyboardMashChecker(currentInput))
+			{
+				nextConversation = "Well that didn't make any sense.";
+			}
+			else
+			{
+				nextConversation = "Wow! You can actually speak english.";
+			}
+			break;
+		case 5:
 			nextConversation = "On an off note I am only a month old! How about you?";
 			break;
 		default:
