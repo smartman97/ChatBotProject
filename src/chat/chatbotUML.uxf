@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>90</x>
+      <y>190</y>
+      <w>630</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>chat.controller
+--
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>740</x>
+      <y>50</y>
+      <w>470</w>
+      <h>420</h>
+    </coordinates>
+    <panel_attributes>chat.model
+--
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>90</x>
+      <y>490</y>
+      <w>1120</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>chat.view
+--
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>100</x>
+      <y>220</y>
+      <w>330</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>ChatController
+--
+- myDisplay : ChatView
+- myBot : ChatBot
+- baseFrame : ChatFrame
+--
++ start() : void
+- chat() : void
++ userToChatbot(String conversation) : string
+- shutDown() : void
++ getMyDisplay() : ChatView
++ getMyBot() : ChatBot
++ getBaseFrame() : ChatFrame</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>440</x>
+      <y>220</y>
+      <w>270</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>ChatRunner
+--
++ main(String[] args) : static void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>460</x>
+      <y>520</y>
+      <w>390</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>ChatPanel
+--
+- baseController : ChatController
+- baseLayout : SpringLayout
+- submitButton : JButton
+- chatArea : JTextArea
+- typingField : JTextField
+- promptLabel : JLabel
+- pictureLabel : JLabel
+--
++ ChatPanel(ChatController baseController) : ChatPanel
++ getTypingField() : JTextField
+- setupLayout : void
+- setupListeners : void
+- setupPanel : void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>100</x>
+      <y>520</y>
+      <w>350</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>ChatView
+--
+- windowMessage : String
+--
++ ChatView()
++ showResponse(String words) : void
++ grabAnswer(String stuff) : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>750</x>
+      <y>80</y>
+      <w>450</w>
+      <h>380</h>
+    </coordinates>
+    <panel_attributes>Chatbot
+--
+- memesList : ArrayList&lt;String&gt;
+- politicalTopicList : ArrayList&lt;String&gt;
+- userName : String
+- content : String
+- topicCounter : int
+--
+- Chatbot(String userName)
+- buildMemesList() : void
+- buildPoliticalTopicList : void
++ lengthChecker(String currentInput) : boolean
++ contentChecker(String currentInput) : boolean
++ politicalTopicChecker(String currentInput) : boolean
++ byeChecker(String currentInput) : boolean
++ memeChecker(String currentInput) : boolean
++ keyBoardMashChecker(String currentInput) : boolean
++ quitChecker(String currentInput) : boolean
++ processConversation(String currentInput) : String
++ getUserName() : String
++ getContent() : String
++ getMemesList() : ArrayList&lt;String&gt;
++ getPoliticalTopicList() : ArrayList&lt;String&gt;
++ setContent(String content) : void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>860</x>
+      <y>520</y>
+      <w>340</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>ChatFrame extends JFrame
+--
+- baseController : ChatController
+- basePanel : ChatPanel
+--
++ ChatFrame(ChatController baseController)
+- setupFrame() : void
++ getBaseController() : ChatController</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

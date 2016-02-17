@@ -183,7 +183,7 @@ public class Chatbot
 	{
 		boolean hasQuit = false;
 		
-		if(currentInput.contains("quit") || currentInput.contains("bye") || currentInput.contains("goodbye") || currentInput.contains("exit"))
+		if(currentInput.equals("quit"))
 		{
 			hasQuit = true;
 		}
@@ -301,6 +301,6 @@ public class Chatbot
 	 */
 	public void setContent(String content)
 	{
-
+		this.content = content;
 	}
 }

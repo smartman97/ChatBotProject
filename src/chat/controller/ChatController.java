@@ -93,7 +93,6 @@ public class ChatController
 	{
 		return myBot;
 	}
-
 	
 	/**
 	 * Returns the chatframe.
