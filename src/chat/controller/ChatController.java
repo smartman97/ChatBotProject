@@ -3,6 +3,7 @@ package chat.controller;
 import chat.model.Chatbot;
 import chat.view.ChatFrame;
 import chat.view.ChatView;
+import chat.model.CTECTwitter;
 
 /**
  * Application controller for the ChatBot project.
@@ -12,6 +13,7 @@ import chat.view.ChatView;
 
 public class ChatController
 {
+	private CTECTwitter chatTwitter;
 	private ChatView myDisplay;
 	private Chatbot myBot;
 	private ChatFrame baseFrame;
@@ -25,6 +27,7 @@ public class ChatController
 		String userName = myDisplay.grabAnswer("What is your name?");
 		myBot = new Chatbot(userName);
 		baseFrame = new ChatFrame(this);
+		chatTwitter = new CTECTwitter(this);
 	}
 	
 	/**
@@ -74,6 +77,16 @@ public class ChatController
 	{
 		myDisplay.showResponse("Goodbye, " + myBot.getUserName());
 		System.exit(0);
+	}
+	
+	public void sendTweet(String tweetText)
+	{
+		chatTwitter.sentTweet(tweetText);
+	}
+	
+	public void handleErrors(String errorMessage)
+	{
+		myDisplay.showResponse(errorMessage);
 	}
 	
 	/**

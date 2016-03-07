@@ -55,6 +55,7 @@ public class ChatPanel extends JPanel
 		promptLabel = new JLabel("Hello, I'm Caliban");
 		submitButton = new JButton("Submit");
 		pictureLabel = new JLabel(chatIcon);
+		tweetButton = new JButton("Tweet");
 		
 		setupChatPane();
 		setupPanel();
@@ -83,6 +84,7 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.WEST, textPane, 150, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.SOUTH, textPane, 275, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.EAST, textPane, -20, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.WEST, tweetButton, 0, SpringLayout.WEST, submitButton);
 	}
 	
 	private void setupChatPane()
@@ -91,6 +93,7 @@ public class ChatPanel extends JPanel
 		chatArea.setWrapStyleWord(true);
 		chatArea.setEditable(false);
 		textPane = new JScrollPane(chatArea);
+		baseLayout.putConstraint(SpringLayout.SOUTH, tweetButton, 0, SpringLayout.SOUTH, textPane);
 		textPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 		textPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 	}
@@ -111,6 +114,14 @@ public class ChatPanel extends JPanel
 				chatArea.append("\nChatbot: " + response);
 			}
 		});
+		
+		tweetButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				
+			}
+		});
 	}
 	/**
 	 * Adds the components to the panel.
@@ -124,6 +135,7 @@ public class ChatPanel extends JPanel
 		this.add(submitButton);
 		this.add(promptLabel);
 		this.add(pictureLabel);
+		this.add(tweetButton);
 		typingField.setToolTipText("Type here for the chatbot.");
 		chatArea.setEnabled(false);
 	}
