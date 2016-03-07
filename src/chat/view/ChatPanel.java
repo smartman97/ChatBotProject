@@ -8,8 +8,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.SpringLayout;
 
 import chat.controller.ChatController;
@@ -27,7 +29,9 @@ public class ChatPanel extends JPanel
 	private JLabel promptLabel;
 	private JLabel pictureLabel;
 	private ImageIcon chatIcon;
-
+	private JScrollPane textPane;
+	private JButton tweetButton;
+	
 	/**
 	 * Returns the text field.
 	 * @return
@@ -52,6 +56,7 @@ public class ChatPanel extends JPanel
 		submitButton = new JButton("Submit");
 		pictureLabel = new JLabel(chatIcon);
 		
+		setupChatPane();
 		setupPanel();
 		setupLayout();
 		setupListeners();
@@ -74,6 +79,20 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.EAST, pictureLabel, 0, SpringLayout.EAST, promptLabel);
 		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 10, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.SOUTH, chatArea, -114, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, textPane, 20, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, textPane, 150, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, textPane, 275, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, textPane, -20, SpringLayout.EAST, this);
+	}
+	
+	private void setupChatPane()
+	{
+		chatArea.setLineWrap(true);
+		chatArea.setWrapStyleWord(true);
+		chatArea.setEditable(false);
+		textPane = new JScrollPane(chatArea);
+		textPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		textPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 	}
 	
 	/**
@@ -100,7 +119,7 @@ public class ChatPanel extends JPanel
 	{
 		this.setLayout(baseLayout);
 		this.setBackground(Color.DARK_GRAY);
-		this.add(chatArea);
+		this.add(textPane);
 		this.add(typingField);
 		this.add(submitButton);
 		this.add(promptLabel);
