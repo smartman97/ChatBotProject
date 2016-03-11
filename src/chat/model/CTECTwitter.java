@@ -4,11 +4,12 @@ import java.util.ArrayList;
 
 import twitter4j.*;
 import chat.controller.ChatController;
+import java.util.List;
 
 public class CTECTwitter
 {
 	private ArrayList<Status> statusList;
-	private ArrayList<String> wordList;
+	private ArrayList<String> tweetTexts;
 	private Twitter chatbotTwitter;
 	private ChatController baseController;
 	
@@ -16,7 +17,7 @@ public class CTECTwitter
 	{
 		this.baseController = baseController;
 		statusList = new ArrayList<Status>();
-		wordList = new ArrayList<String>();
+		tweetTexts = new ArrayList<String>();
 		chatbotTwitter = TwitterFactory.getSingleton();
 	}
 	
@@ -24,11 +25,55 @@ public class CTECTwitter
 	{
 		try
 		{
-		chatbotTwitter.updateStatus("I just tweeted from my Java Chatbot program! #APCSRocks @CTECNow Thanks @cscheerleader & @codyhenrichsen!");
+		chatbotTwitter.updateStatus("This chatBot is now Tweeting for Colm #APCSRocks @CTECNow Thanks @cscheerleader & @codyhenrichsen!");
 		}
 		catch(TwitterException error)
 		{
 			baseController.handleErrors(error.getErrorMessage());
 		}
+	}
+	
+	public String topResults(List<String> wordList)
+	{
+		return null;
+	}
+	
+	public void loadTweets(String twitterHandle) throws TwitterException
+	{
+		Paging statusPage = new Paging(1, 200);
+		int page = 1;
+		
+		while(page <= 10)
+		{
+			statusPage.setPage(page);
+			statusList.addAll(chatbotTwitter.getUserTimeline(twitterHandle, statusPage));
+			page++;
+		}
+		
+		for(Status currentStatus : statusList)
+		{
+			String[] tweetText = currentStatus.getText().split(" ");
+			for(String word : tweetText)
+			{
+				tweetTexts.add(removePunctuation(word).toLowerCase());
+			}
+		}
+		removeCommonEnglishWords(tweetTexts);
+		removeEmptyText();
+	}
+	
+	private String removePunctuation(String cuurentString)
+	{
+		return null;
+	}
+	
+	private void removeCommonEnglishWords(List<String> wordList)
+	{
+		
+	}
+	
+	private void removeEmptyText()
+	{
+		
 	}
 }

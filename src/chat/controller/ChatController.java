@@ -52,6 +52,13 @@ public class ChatController
 		}
 	}
 	
+	public String analyze(String userName)
+	{
+		String userAnalysis = "The Twitter user " + userName + "has...";
+		
+		return userAnalysis;
+	}
+	
 	/**
 	 * Takes user input and allows the GUI to see it
 	 * @param conversation
