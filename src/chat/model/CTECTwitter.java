@@ -1,9 +1,13 @@
 package chat.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import twitter4j.*;
 import chat.controller.ChatController;
+
 import java.util.List;
 
 public class CTECTwitter
@@ -79,7 +83,7 @@ public class CTECTwitter
 	}
 	
 	@SuppressWarnings("unchecked")
-	private void removeCommonEnglishWords(List<String> wordList)
+	private void removeCommonEnglishWords(List<String> tweetTexts)
 	{
 		String[] boringWords = importWordsToArray();
 		
@@ -107,5 +111,33 @@ public class CTECTwitter
 				spot--; //if we fail we have to subtract to move over
 			}
 		}
+	}
+	
+	private String[] importWordsToArray()
+	{
+		String[] boringWords;
+		int wordCount = 0;
+		try
+		{
+			Scanner wordFile = new Scanner(new File("commonWords.txt"));
+			while(wordFile.hasNext())
+			{
+				wordCount++;
+				wordFile.next();
+			}
+			wordFile.reset();
+			boringWords = new String[wordCount];
+			int boringWordCount = 0;
+			while(wordFile.hasNext())
+			{
+				boringWords[boringWordCount] = wordFile.next();
+				boringWordCount++;
+			}
+		}
+		catch (FileNotFoundException e)
+		{
+			return new String[0];
+		}
+		return boringWords;
 	}
 }
