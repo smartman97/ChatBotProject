@@ -133,6 +133,7 @@ public class CTECTwitter
 				boringWords[boringWordCount] = wordFile.next();
 				boringWordCount++;
 			}
+			wordFile.close();
 		}
 		catch (FileNotFoundException e)
 		{
