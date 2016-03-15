@@ -141,4 +141,16 @@ public class CTECTwitter
 		}
 		return boringWords;
 	}
+	
+	private void removeTwitterUserNamesFromList(List<String> tweetTexts)
+	{
+		for(int wordCount = 0; wordCount < tweetTexts.size(); wordCount++)
+		{
+			if(tweetTexts.get(wordCount).length() >= 1 && tweetTexts.get(wordCount).charAt(0) == '@')
+			{
+				tweetTexts.remove(wordCount);
+				wordCount--;
+			}
+		}
+	}
 }
