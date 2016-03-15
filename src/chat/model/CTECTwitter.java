@@ -85,6 +85,13 @@ public class CTECTwitter
 	
 	private void removeEmptyText()
 	{
-		
+		for(int spot = 0; spot < tweetTexts.size(); spot++)
+		{
+			if(tweetTexts.get(spot).equals(""))
+			{
+				tweetTexts.remove(spot);
+				spot--;
+			}
+		}
 	}
 }
