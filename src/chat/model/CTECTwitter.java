@@ -62,9 +62,20 @@ public class CTECTwitter
 		removeEmptyText();
 	}
 	
-	private String removePunctuation(String cuurentString)
+	private String removePunctuation(String currentString)
 	{
-		return null;
+		String punctuation = ".,'?!;:/\"(){}^[]<>-_&";
+		
+		String scrubbedString = "";
+		for(int i = 0; i < currentString.length(); i++)
+		{
+			if(punctuation.indexOf(currentString.charAt(i)) == -1)
+			{
+				scrubbedString += currentString.charAt(i);
+			}
+		}
+		
+		return scrubbedString;
 	}
 	
 	private void removeCommonEnglishWords(List<String> wordList)
