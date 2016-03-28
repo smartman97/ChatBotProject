@@ -139,8 +139,10 @@ public class ChatPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				String user = typingField.getText();
-				String results = baseController.analyze(user);
+//				String user = typingField.getText();
+//				String results = baseController.analyze(user);
+				
+				String results = baseController.locationSearch();
 				chatArea.setText(results);
 			}
 		});

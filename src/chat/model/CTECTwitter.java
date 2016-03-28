@@ -156,9 +156,16 @@ public class CTECTwitter
 	public String topResults()
 	{
 		String tweetResults = "";
+		String firstResults = "";
+		String secondResults = "";
+		String thirdResults = "";
 
 		int topWordLocation = 0;
+		int secondWordLocation = 0;
+		int thirdWordLocation = 0;
 		int topCount = 0;
+		int secondCount = 0;
+		int thirdCount = 0;
 		int wordUseCount = 0;
 
 		for (int index = 0; index < tweetTexts.size(); index++)
@@ -167,11 +174,12 @@ public class CTECTwitter
 
 			for (int spot = index + 1; spot < tweetTexts.size(); spot++)
 			{
-				if (tweetTexts.get(index).equals(tweetTexts.get(spot)))
+				if(tweetTexts.get(index).equals(tweetTexts.get(spot)))
 				{
 					wordUseCount++;
 				}
-				if (wordUseCount > topCount)
+				
+				if(wordUseCount > topCount)
 				{
 					topCount = wordUseCount;
 					topWordLocation = index;
@@ -179,9 +187,11 @@ public class CTECTwitter
 			}
 		}
 
-		tweetResults = "The top word used is: "
-				+ tweetTexts.get(topWordLocation) + " and it was used "
-				+ topCount + " times!";
+		firstResults = "The top word used is: " + tweetTexts.get(topWordLocation) + " and it was used " + topCount + " times!\n";
+		secondResults = "The 2nd most used word is: " + tweetTexts.get(secondWordLocation) + " and it was used " + secondCount + " times!\n";
+		thirdResults = "The 3rd most used word is: " + tweetTexts.get(thirdWordLocation) + " and it was used " + thirdCount + " times!\n";
+		
+		tweetResults = firstResults + secondResults + thirdResults;
 		return tweetResults;
 	}
 	
@@ -189,17 +199,17 @@ public class CTECTwitter
 	{
 		String results = "";
 		
-		Query query = new Query("marathon");
+		Query query = new Query("school");
 		query.setCount(100);
-		query.setGeoCode(new GeoLocation(40.587521, -111.86178), 5, Query.MILES);
-		query.setSince("2016-1-1");
+		query.setGeoCode(new GeoLocation(40.514722, -111.873056), 20, Query.MILES);
+		query.setSince("2015-1-1");
 		try
 		{
 			QueryResult result = chatbotTwitter.search(query);
-			results.concat("Count: " + result.getTweets().size());
+			results += "Count: " + result.getTweets().size() + "\n";
 			for(Status tweet: result.getTweets())
 			{
-				results.concat("@" + tweet.getUser().getName() + ": " + tweet.getText() + "\n");
+				results += "@" + tweet.getUser().getName() + ": " + tweet.getText() + "\n";
 			}
 		}
 		catch(TwitterException error)

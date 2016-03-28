@@ -69,6 +69,15 @@ public class ChatController
 		return userAnalysis;
 	}
 	
+	public String locationSearch()
+	{
+		String results = "";
+		
+		results = chatTwitter.sampleInvestigation();
+		
+		return results;
+	}
+	
 	/**
 	 * Takes user input and allows the GUI to see it
 	 * @param conversation
