@@ -15,6 +15,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SpringLayout;
 
 import chat.controller.ChatController;
+import chat.controller.IOController;
 
 public class ChatPanel extends JPanel
 {
@@ -151,7 +152,8 @@ public class ChatPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				
+				String loadedText = IOController.readTextFromFile(promptLabel.getText());
+				promptLabel.setText(loadedText);
 			}
 		});
 		
@@ -159,7 +161,8 @@ public class ChatPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				
+				String file = IOController.saveFile(chatArea.getText());
+				promptLabel.setText(file);
 			}
 		});
 	}
